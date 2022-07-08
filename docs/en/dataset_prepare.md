@@ -138,6 +138,10 @@ mmsegmentation
 │   │   ├── ann_dir
 │   │   │   ├── train
 │   │   │   ├── val
+│   ├── kitti_step
+│   │   ├── testing
+│   │   ├── training
+│   │   ├── panoptic_maps
 ```
 
 ### Cityscapes
@@ -376,3 +380,33 @@ python tools/convert_datasets/isaid.py /path/to/iSAID
 ```
 
 In our default setting (`patch_width`=896, `patch_height`=896,　`overlap_area`=384), it will generate 33978 images for training and 11644 images for validation.
+
+### KITTI-STEP
+
+After registration, the data images could be download from [KITTI-STEP](http://www.cvlibs.net/datasets/kitti/eval_step.php)
+
+You may need to follow the following structure for dataset preparation after downloading iSAID dataset.
+
+```
+│   ├── kitti_step
+│   │   ├── testing
+│   │   ├── training
+│   │   ├── panoptic_maps
+```
+
+Run the preparation script to generate label files and kitti subsets by executing
+
+```shell
+python tools/convert_datasets/kitti_step.py /path/to/kitti_step
+```
+
+After executing the script, your directory should look like
+
+```
+│   ├── kitti_step
+│   │   ├── testing
+│   │   ├── training
+│   │   ├── panoptic_maps
+│   │   ├── training_openmmlab
+│   │   ├── panoptic_maps_openmmlab
+```
