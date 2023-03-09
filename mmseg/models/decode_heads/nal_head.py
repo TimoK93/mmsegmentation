@@ -17,6 +17,8 @@ class NoiseAdaptionLayerHead(BaseLossCorrectionHead):
     The learned noise distribution is stored in the weights of the Conv2 layer
     `self.noise_adaption_layer'.
 
+    Note that the features for complex model are down-sampled to n=32 due to
+    the intractability for n x n matrices for large features dimensions.
 
     This head is the implementation of
         `TRAINING DEEP NEURAL-NETWORKS USING A NOISEADAPTATION LAYER
