@@ -402,6 +402,7 @@ class ResNet(BaseModule):
                  strides=(1, 2, 2, 2),
                  dilations=(1, 1, 1, 1),
                  out_indices=(0, 1, 2, 3),
+                 dropout_rates=(None, None, None, None),
                  style='pytorch',
                  deep_stem=False,
                  avg_down=False,
@@ -463,6 +464,8 @@ class ResNet(BaseModule):
         self.strides = strides
         self.dilations = dilations
         assert len(strides) == len(dilations) == num_stages
+        self.dropout_rates = dropout_rates
+        assert len(dropout_rates) == len(dropout_rates) == num_stages
         self.out_indices = out_indices
         assert max(out_indices) < num_stages
         self.style = style
@@ -490,6 +493,7 @@ class ResNet(BaseModule):
         for i, num_blocks in enumerate(self.stage_blocks):
             stride = strides[i]
             dilation = dilations[i]
+            dropout_rate = dropout_rates[i]
             dcn = self.dcn if self.stage_with_dcn[i] else None
             if plugins is not None:
                 stage_plugins = self.make_stage_plugins(plugins, i)
@@ -515,6 +519,7 @@ class ResNet(BaseModule):
                 plugins=stage_plugins,
                 multi_grid=stage_multi_grid,
                 contract_dilation=contract_dilation,
+                dropout_rate=dropout_rate,
                 init_cfg=block_init_cfg)
             self.inplanes = planes * self.block.expansion
             layer_name = f'layer{i+1}'
@@ -655,6 +660,19 @@ class ResNet(BaseModule):
             m.eval()
             for param in m.parameters():
                 param.requires_grad = False
+
+    def dropout(self, mode: bool):
+        """Activates or Deactivates Dropout in ResBlocks."""
+        for i, rate in enumerate(self.dropout_rates):
+            if rate is None:
+                continue
+            block = getattr(self, self.res_layers[i])
+            for m in block.__dict__['_modules'].keys():
+                if type(block.__dict__['_modules'][m]) == nn.Dropout2d:
+                    if mode:
+                        block.__dict__['_modules'][m].train()
+                    else:
+                        block.__dict__['_modules'][m].eval()
 
     def forward(self, x):
         """Forward function."""

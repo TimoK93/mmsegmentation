@@ -19,10 +19,12 @@ class ResLayer(Sequential):
             Default: None
         norm_cfg (dict): dictionary to construct and config norm layer.
             Default: dict(type='BN')
-        multi_grid (int | None): Multi grid dilation rates of last
-            stage. Default: None
+        multi_grid (int | None): Multi grid dilation rates of last stage.
+            Default: None
         contract_dilation (bool): Whether contract first dilation of each layer
             Default: False
+        dropout_rate (float | None): Dropout rate after layer. No dropout
+            if set to None. Default: None
     """
 
     def __init__(self,
@@ -37,6 +39,7 @@ class ResLayer(Sequential):
                  norm_cfg=dict(type='BN'),
                  multi_grid=None,
                  contract_dilation=False,
+                 dropout_rate=None,
                  **kwargs):
         self.block = block
 
@@ -82,6 +85,8 @@ class ResLayer(Sequential):
                 conv_cfg=conv_cfg,
                 norm_cfg=norm_cfg,
                 **kwargs))
+        if dropout_rate is not None:
+            layers.append(nn.Dropout2d(dropout_rate))
         inplanes = planes * block.expansion
         for i in range(1, num_blocks):
             layers.append(
@@ -93,4 +98,6 @@ class ResLayer(Sequential):
                     conv_cfg=conv_cfg,
                     norm_cfg=norm_cfg,
                     **kwargs))
+            if dropout_rate is not None:
+                layers.append(nn.Dropout2d(dropout_rate))
         super(ResLayer, self).__init__(*layers)
