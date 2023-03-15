@@ -64,7 +64,7 @@ def main(args):
         else:
             pred = model.module.simple_test_logits(**x[0])
         pred = pred.max(axis=1).squeeze()
-        hists.append(np.histogram(pred, 100, (0, 1)))
+        hists.append(np.histogram(pred, 1000, (0, 1)))
 
         prog_bar.update()
 
