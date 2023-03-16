@@ -75,7 +75,7 @@ def main(args):
 
         Image.fromarray(heatmap).save(file_name)
         if args.store_raw_uncertainty:
-            new_file_name = file_name + '_raw_uncertainty.numpy'
+            new_file_name = file_name + '_raw_uncertainty.npy'
             np.save(new_file_name, uncertainty.astype(np.float16))
         if args.store_prediction:
             new_file_name = file_name + '_prediction.png'
