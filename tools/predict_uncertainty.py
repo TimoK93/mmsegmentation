@@ -58,8 +58,6 @@ def main(args):
     prog_bar = mmcv.ProgressBar(len(dataset))
     loader_indices = data_loader.batch_sampler
     for batch_indices, data in zip(loader_indices, data_loader):
-        # print(data["img_metas"])
-        # quit()
         x, _ = scatter_kwargs(
             inputs=data, kwargs=None, target_gpus=model.device_ids)
         if args.aug_test:
@@ -68,15 +66,14 @@ def main(args):
             logits, unc = \
                 model.module.simple_test_logits_with_uncertainty(**x[0])
         pred = logits.argmax(axis=1)
-        uncertainty = unc[0][np.unravel_index(pred, pred.shape)].squeeze()
+        uncertainty = unc.squeeze()
         pred = pred.squeeze()
-        heatmap = 255 * uncertainty / uncertainty.max()
-
+        heatmap = (255 * (uncertainty / uncertainty.max())).astype(np.uint8)
         img_info = dataset.img_infos[batch_indices[0]]
         file_name = os.path.join(
             tmpdir, img_info['ann']['seg_map'].split(os.path.sep)[-1])
 
-        Image.fromarray(heatmap.astype(np.uint8)).save(file_name)
+        Image.fromarray(heatmap).save(file_name)
         if args.store_raw_uncertainty:
             new_file_name = file_name + '_raw_uncertainty.numpy'
             np.save(new_file_name, uncertainty.astype(np.float16))
