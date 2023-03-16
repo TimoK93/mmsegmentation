@@ -53,3 +53,10 @@ class BaseLossCorrectionHead(BaseModule):
         Overwrite if necessary.
         """
         return self.decode_head.forward_test(inputs, img_metas, test_cfg)
+
+    def uncertainty(self, inputs, **kwargs):
+        """Returns the uncertainty obtained by compensation.
+
+        Overwrite if necessary.
+        """
+        return self.decode_head.uncertainty(inputs, **kwargs)
