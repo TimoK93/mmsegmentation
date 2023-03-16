@@ -49,6 +49,8 @@ class BayesianEncoderDecoder(EncoderDecoder):
                 size=img.shape[2:],
                 mode='bilinear',
                 align_corners=self.align_corners)
+            variance = variance * (out == out.max(dim=1, keepdims=True)[0])
+            variance = variance.sum(dim=1, keepdims=True)
             return out, variance
         return out
 

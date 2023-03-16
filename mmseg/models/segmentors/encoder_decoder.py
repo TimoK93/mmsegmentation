@@ -327,3 +327,33 @@ class EncoderDecoder(BaseSegmentor):
         seg_logit /= len(imgs)
         seg_logit = seg_logit.cpu().numpy()
         return seg_logit
+
+    def forward_with_uncertainty(self, img, img_metas, **kwargs):
+        """Dummy forward function that also returns uncertainty."""
+        x = self.extract_feat(img[0])
+        seg_logit = self._decode_head_forward_test(x, img_metas[0])
+        seg_logit = resize(
+            input=seg_logit,
+            size=img[0].shape[2:],
+            mode='bilinear',
+            align_corners=self.align_corners)
+        uncertainty = self.decode_head.uncertainty(x)
+        uncertainty = resize(
+            input=uncertainty,
+            size=img[0].shape[2:],
+            mode='bilinear',
+            align_corners=self.align_corners)
+        return seg_logit, uncertainty
+
+    def simple_test_logits_with_uncertainty(self,
+                                            img,
+                                            img_metas,
+                                            rescale=True):
+        """Test single image without augmentations with uncertainty.
+
+        Return numpy seg_map logits and std deviation.
+        """
+        seg_logit, uncertainty = self.forward_with_uncertainty(img, img_metas)
+        uncertainty = uncertainty.cpu().numpy()
+        seg_logit = seg_logit.cpu().numpy()
+        return seg_logit, uncertainty

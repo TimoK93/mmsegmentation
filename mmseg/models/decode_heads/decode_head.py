@@ -310,3 +310,10 @@ class BaseDecodeHead(BaseModule, metaclass=ABCMeta):
         loss['acc_seg'] = accuracy(
             seg_logit, seg_label, ignore_index=self.ignore_index)
         return loss
+
+    def uncertainty(self, inputs, **kwargs):
+        """Returns the prediction uncertainty."""
+        seg_logits = self.forward(inputs)
+        probs = seg_logits.softmax(dim=1).max(dim=1, keepdims=True)
+        uncertainty = 1 - probs
+        return uncertainty
