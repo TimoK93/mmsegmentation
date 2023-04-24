@@ -21,7 +21,9 @@ class BaseLossCorrectionHead(BaseModule):
         # Inherit decode head attributes
         for item in dir(self.decode_head):
             if item not in dir(self):
-                self.__setattr__(item, getattr(self.decode_head, item))
+                if type(getattr(self.decode_head,
+                                item)) in [int, str, float, bool, None]:
+                    self.__setattr__(item, getattr(self.decode_head, item))
         # Copy important functions
         self._init_inputs = self.decode_head._init_inputs
         self._transform_inputs = self.decode_head._transform_inputs
