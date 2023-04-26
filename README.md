@@ -1,263 +1,259 @@
-<div align="center">
-  <img src="resources/mmseg-logo.png" width="600"/>
-  <div>&nbsp;</div>
-  <div align="center">
-    <b><font size="5">OpenMMLab website</font></b>
-    <sup>
-      <a href="https://openmmlab.com">
-        <i><font size="4">HOT</font></i>
-      </a>
-    </sup>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <b><font size="5">OpenMMLab platform</font></b>
-    <sup>
-      <a href="https://platform.openmmlab.com">
-        <i><font size="4">TRY IT OUT</font></i>
-      </a>
-    </sup>
-  </div>
-  <div>&nbsp;</div>
+# Compensation Learning
 
-<br />
+Compensation Learning in Semantic Segmentation:
 
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/mmsegmentation)](https://pypi.org/project/mmsegmentation/)
-[![PyPI](https://img.shields.io/pypi/v/mmsegmentation)](https://pypi.org/project/mmsegmentation)
-[![docs](https://img.shields.io/badge/docs-latest-blue)](https://mmsegmentation.readthedocs.io/en/latest/)
-[![badge](https://github.com/open-mmlab/mmsegmentation/workflows/build/badge.svg)](https://github.com/open-mmlab/mmsegmentation/actions)
-[![codecov](https://codecov.io/gh/open-mmlab/mmsegmentation/branch/master/graph/badge.svg)](https://codecov.io/gh/open-mmlab/mmsegmentation)
-[![license](https://img.shields.io/github/license/open-mmlab/mmsegmentation.svg)](https://github.com/open-mmlab/mmsegmentation/blob/master/LICENSE)
-[![issue resolution](https://isitmaintained.com/badge/resolution/open-mmlab/mmsegmentation.svg)](https://github.com/open-mmlab/mmsegmentation/issues)
-[![open issues](https://isitmaintained.com/badge/open/open-mmlab/mmsegmentation.svg)](https://github.com/open-mmlab/mmsegmentation/issues)
+![](network.png)
 
-[📘Documentation](https://mmsegmentation.readthedocs.io/en/latest/) |
-[🛠️Installation](https://mmsegmentation.readthedocs.io/en/latest/get_started.html) |
-[👀Model Zoo](https://mmsegmentation.readthedocs.io/en/latest/model_zoo.html) |
-[🆕Update News](https://mmsegmentation.readthedocs.io/en/latest/changelog.html) |
-[🤔Reporting Issues](https://github.com/open-mmlab/mmsegmentation/issues/new/choose)
+> [**Compensation Learning in Semantic Segmentation**](ADD),
+> Timo Kaiser, Christoph Reinders, Bodo Rosenhahn
+> *arXiv report ([arXiv 12345](http://arxiv.org/abs/todo))*
 
-</div>
-
-<div align="center">
-
-English | [简体中文](README_zh-CN.md)
-
-</div>
-
-<div align="center">
-  <a href="https://openmmlab.medium.com/" style="text-decoration:none;">
-    <img src="https://user-images.githubusercontent.com/25839884/218352562-cdded397-b0f3-4ca1-b8dd-a60df8dca75b.png" width="3%" alt="" /></a>
-  <img src="https://user-images.githubusercontent.com/25839884/218346358-56cc8e2f-a2b8-487f-9088-32480cceabcf.png" width="3%" alt="" />
-  <a href="https://discord.gg/raweFPmdzG" style="text-decoration:none;">
-    <img src="https://user-images.githubusercontent.com/25839884/218347213-c080267f-cbb6-443e-8532-8e1ed9a58ea9.png" width="3%" alt="" /></a>
-  <img src="https://user-images.githubusercontent.com/25839884/218346358-56cc8e2f-a2b8-487f-9088-32480cceabcf.png" width="3%" alt="" />
-  <a href="https://twitter.com/OpenMMLab" style="text-decoration:none;">
-    <img src="https://user-images.githubusercontent.com/25839884/218346637-d30c8a0f-3eba-4699-8131-512fb06d46db.png" width="3%" alt="" /></a>
-  <img src="https://user-images.githubusercontent.com/25839884/218346358-56cc8e2f-a2b8-487f-9088-32480cceabcf.png" width="3%" alt="" />
-  <a href="https://www.youtube.com/openmmlab" style="text-decoration:none;">
-    <img src="https://user-images.githubusercontent.com/25839884/218346691-ceb2116a-465a-40af-8424-9f30d2348ca9.png" width="3%" alt="" /></a>
-</div>
-
-## Introduction
-
-MMSegmentation is an open source semantic segmentation library based on PyTorch.
-It is a part of the [OpenMMLab](https://openmmlab.com/) project.
-
-The master branch works with **PyTorch 1.5+**.
-
-![demo image](resources/seg_demo.gif)
-
-<details open>
-<summary>Major features</summary>
-
-- **Unified Benchmark**
-
-  We provide a unified benchmark toolbox for various semantic segmentation methods.
-
-- **Modular Design**
-
-  We decompose the semantic segmentation framework into different components and one can easily construct a customized semantic segmentation framework by combining different modules.
-
-- **Support of multiple methods out of box**
-
-  The toolbox directly supports popular and contemporary semantic segmentation frameworks, *e.g.* PSPNet, DeepLabV3, PSANet, DeepLabV3+, etc.
-
-- **High efficiency**
-
-  The training speed is faster than or comparable to other codebases.
-
-</details>
-
-## What's New
-
-### 💎 Stable version
-
-v0.30.0 was released on 01/11/2023:
-
-- Add 'Projects/' folder, and the first example project
-- Support Delving into High-Quality Synthetic Face Occlusion Segmentation Datasets
-
-Please refer to [changelog.md](docs/en/changelog.md) for details and release history.
-
-### 🌟 Preview of 1.x version
-
-A brand new version of **MMSegmentation v1.0.0rc3** was released in 12/31/2022:
-
-- Unifies interfaces of all components based on [MMEngine](https://github.com/open-mmlab/mmengine).
-- Faster training and testing speed with complete support of mixed precision training.
-- Refactored and more flexible [architecture](https://mmsegmentation.readthedocs.io/en/1.x/overview.html).
-
-Find more new features in [1.x branch](https://github.com/open-mmlab/mmsegmentation/tree/1.x). Issues and PRs are welcome!
-
-## Installation
-
-Please refer to [get_started.md](docs/en/get_started.md#installation) for installation and [dataset_prepare.md](docs/en/dataset_prepare.md#prepare-datasets) for dataset preparation.
-
-## Get Started
-
-Please see [train.md](docs/en/train.md) and [inference.md](docs/en/inference.md) for the basic usage of MMSegmentation.
-There are also tutorials for:
-
-- [customizing dataset](docs/en/tutorials/customize_datasets.md)
-- [designing data pipeline](docs/en/tutorials/data_pipeline.md)
-- [customizing modules](docs/en/tutorials/customize_models.md)
-- [customizing runtime](docs/en/tutorials/customize_runtime.md)
-- [training tricks](docs/en/tutorials/training_tricks.md)
-- [useful tools](docs/en/useful_tools.md)
-
-A Colab tutorial is also provided. You may preview the notebook [here](demo/MMSegmentation_Tutorial.ipynb) or directly [run](https://colab.research.google.com/github/open-mmlab/mmsegmentation/blob/master/demo/MMSegmentation_Tutorial.ipynb) on Colab.
-
-## Benchmark and model zoo
-
-Results and models are available in the [model zoo](docs/en/model_zoo.md).
-
-Supported backbones:
-
-- [x] ResNet (CVPR'2016)
-- [x] ResNeXt (CVPR'2017)
-- [x] [HRNet (CVPR'2019)](configs/hrnet)
-- [x] [ResNeSt (ArXiv'2020)](configs/resnest)
-- [x] [MobileNetV2 (CVPR'2018)](configs/mobilenet_v2)
-- [x] [MobileNetV3 (ICCV'2019)](configs/mobilenet_v3)
-- [x] [Vision Transformer (ICLR'2021)](configs/vit)
-- [x] [Swin Transformer (ICCV'2021)](configs/swin)
-- [x] [Twins (NeurIPS'2021)](configs/twins)
-- [x] [BEiT (ICLR'2022)](configs/beit)
-- [x] [ConvNeXt (CVPR'2022)](configs/convnext)
-- [x] [MAE (CVPR'2022)](configs/mae)
-- [x] [PoolFormer (CVPR'2022)](configs/poolformer)
-- [x] [SegNeXt (NeurIPS'2022)](configs/segnext)
-
-Supported methods:
-
-- [x] [FCN (CVPR'2015/TPAMI'2017)](configs/fcn)
-- [x] [ERFNet (T-ITS'2017)](configs/erfnet)
-- [x] [UNet (MICCAI'2016/Nat. Methods'2019)](configs/unet)
-- [x] [PSPNet (CVPR'2017)](configs/pspnet)
-- [x] [DeepLabV3 (ArXiv'2017)](configs/deeplabv3)
-- [x] [BiSeNetV1 (ECCV'2018)](configs/bisenetv1)
-- [x] [PSANet (ECCV'2018)](configs/psanet)
-- [x] [DeepLabV3+ (CVPR'2018)](configs/deeplabv3plus)
-- [x] [UPerNet (ECCV'2018)](configs/upernet)
-- [x] [ICNet (ECCV'2018)](configs/icnet)
-- [x] [NonLocal Net (CVPR'2018)](configs/nonlocal_net)
-- [x] [EncNet (CVPR'2018)](configs/encnet)
-- [x] [Semantic FPN (CVPR'2019)](configs/sem_fpn)
-- [x] [DANet (CVPR'2019)](configs/danet)
-- [x] [APCNet (CVPR'2019)](configs/apcnet)
-- [x] [EMANet (ICCV'2019)](configs/emanet)
-- [x] [CCNet (ICCV'2019)](configs/ccnet)
-- [x] [DMNet (ICCV'2019)](configs/dmnet)
-- [x] [ANN (ICCV'2019)](configs/ann)
-- [x] [GCNet (ICCVW'2019/TPAMI'2020)](configs/gcnet)
-- [x] [FastFCN (ArXiv'2019)](configs/fastfcn)
-- [x] [Fast-SCNN (ArXiv'2019)](configs/fastscnn)
-- [x] [ISANet (ArXiv'2019/IJCV'2021)](configs/isanet)
-- [x] [OCRNet (ECCV'2020)](configs/ocrnet)
-- [x] [DNLNet (ECCV'2020)](configs/dnlnet)
-- [x] [PointRend (CVPR'2020)](configs/point_rend)
-- [x] [CGNet (TIP'2020)](configs/cgnet)
-- [x] [BiSeNetV2 (IJCV'2021)](configs/bisenetv2)
-- [x] [STDC (CVPR'2021)](configs/stdc)
-- [x] [SETR (CVPR'2021)](configs/setr)
-- [x] [DPT (ArXiv'2021)](configs/dpt)
-- [x] [Segmenter (ICCV'2021)](configs/segmenter)
-- [x] [SegFormer (NeurIPS'2021)](configs/segformer)
-- [x] [K-Net (NeurIPS'2021)](configs/knet)
-- [x] [DEST (CVPRW'2022)](projects/dest)
-
-Supported datasets:
-
-- [x] [Cityscapes](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/en/dataset_prepare.md#cityscapes)
-- [x] [PASCAL VOC](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/en/dataset_prepare.md#pascal-voc)
-- [x] [ADE20K](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/en/dataset_prepare.md#ade20k)
-- [x] [Pascal Context](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/en/dataset_prepare.md#pascal-context)
-- [x] [COCO-Stuff 10k](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/en/dataset_prepare.md#coco-stuff-10k)
-- [x] [COCO-Stuff 164k](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/en/dataset_prepare.md#coco-stuff-164k)
-- [x] [CHASE_DB1](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/en/dataset_prepare.md#chase-db1)
-- [x] [DRIVE](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/en/dataset_prepare.md#drive)
-- [x] [HRF](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/en/dataset_prepare.md#hrf)
-- [x] [STARE](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/en/dataset_prepare.md#stare)
-- [x] [Dark Zurich](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/en/dataset_prepare.md#dark-zurich)
-- [x] [Nighttime Driving](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/en/dataset_prepare.md#nighttime-driving)
-- [x] [LoveDA](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/en/dataset_prepare.md#loveda)
-- [x] [Potsdam](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/en/dataset_prepare.md#isprs-potsdam)
-- [x] [Vaihingen](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/en/dataset_prepare.md#isprs-vaihingen)
-- [x] [iSAID](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/en/dataset_prepare.md#isaid)
-- [x] [High quality synthetic face occlusion](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/en/dataset_prepare.md#delving-into-high-quality-synthetic-face-occlusion-segmentation-datasets)
-- [x] [ImageNetS](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/en/dataset_prepare.md#imagenets)
-- [x] [KITTI-STEP](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/en/dataset_prepare.md#kitti-step)
-
-## FAQ
-
-Please refer to [FAQ](docs/en/faq.md) for frequently asked questions.
-
-## Contributing
-
-We appreciate all contributions to improve MMSegmentation. Please refer to [CONTRIBUTING.md](.github/CONTRIBUTING.md) for the contributing guideline.
-
-## Acknowledgement
-
-MMSegmentation is an open source project that welcome any contribution and feedback.
-We wish that the toolbox and benchmark could serve the growing research
-community by providing a flexible as well as standardized toolkit to reimplement existing methods
-and develop their own new semantic segmentation methods.
-
-## Citation
-
-If you find this project useful in your research, please consider cite:
-
-```bibtex
-@misc{mmseg2020,
-    title={{MMSegmentation}: OpenMMLab Semantic Segmentation Toolbox and Benchmark},
-    author={MMSegmentation Contributors},
-    howpublished = {\url{https://github.com/open-mmlab/mmsegmentation}},
-    year={2020}
+```
+@inproceedings{kaiser_2023_CVPR,
+    title={Compensation Learning in Semantic Segmentation},
+    author = {Kaiser, Timo and Reinders, Christoph and Rosenhahn, Bodo},
+    booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
+    year={2023}
 }
 ```
 
+Contact: [kaiser@tnt.uni-hannover.de](kaiser@tnt.uni-hannover.de). Any questions or discussion are welcome!
+
+## Abstract
+
+Label noise and ambiguities between similar classes are
+challenging problems in developing new models and annotating new data for semantic segmentation. In this paper,
+we propose Compensation Learning in Semantic Segmentation, a framework to identify and compensate ambiguities
+as well as label noise. More specifically, we add a ground
+truth depending and globally learned bias to the classification logits and introduce a novel uncertainty branch for
+neural networks to induce the compensation bias only to relevant regions. Our method is employed into state-of-the-art
+segmentation frameworks and several experiments demonstrate that our proposed compensation learns inter-class relations
+that allow global identification of challenging ambiguities as well as the exact localization of subsequent label noise.
+Additionally, it enlarges robustness against label
+noise during training and allows target-oriented manipulation during inference. We evaluate the proposed method on
+Cityscapes, KITTI-STEP, ADE20k, and COCO-stuff10k.
+
+## Installation
+
+This repository is built on top of MMSegmentation. Please refer to [get_started.md](docs/en/get_started.md) for
+installation instructions.
+After installation, you can use the scripts described below.
+
+Data preparation is described in [dataset_prepare.md](docs/en/dataset_prepare.md). Please note that the dataset
+KITTI-STEP is currently only supported by this repository and not by MMSegmentation. We are working on a pull request!
+
+## Usage
+
+We provide and explain the following features from the paper in this repository:
+
+- Training with compensation
+- Biased Inference with compensation
+- Plot compensation values
+- Plot certainty distribution
+- Uncertainty estimation
+- Competitors:
+  - Bayesian Neural Network
+  - Noise Adaption Layer: Simple and Complex noise modeling
+  - LogComp
+- Pretrained models
+
+### Training with Compensation
+
+All reported training schedules can be found in the folder **configs/compensation_head**. For example, to train a
+compensation head on KITTI-STEP with a deeplabv3plus backbone, run
+
+```shell
+tools/dist_train.sh configs/compensation_head/compensation_head_deeplabv3plus_r50-d8_368x368_80k_kittistep.py 8
+```
+
+Compensation can be applied via the CompensationHead class which is a wrapper around the original decode head.
+The CompensationHead class can be found in **mmseg/models/decode_heads/compensation_head.py**.
+The config file for a training schedule is shown below:
+
+```python
+_base_ = '../deeplabv3plus/deeplabv3plus_r50-d8_512x512_80k_ade20k.py'
+
+model = dict(
+    decode_head=dict(
+        type='CompensationHead',
+        local_compensation=True,
+        loss_balancing=0.01,
+        non_diagonal=True,
+        symmetric=True,
+        top_k=5,
+        decode_head={{_base_.model.decode_head}},
+    ),
+)
+```
+
+The following parameters can be set in the config file:
+
+- non_diagonal: If true, the diagonal entries of the compensation matrix are forced to be zero.
+- symmetric: If true, the compensation matrix is symmetric.
+- top_k: The top k most frequent classes are used to compute the uncertainty (not important for training or inference!).
+- loss_balancing: The loss balancing factor for the compensation loss.
+- local_compensation: If true, the local compensation branch is activated in the decode head.
+
+NOTE: The training schedules in this repository are defined for 4 GPUs. If you use a larger or smaller GPU setup, you have to adjust the batch size
+in the configuration file.
+
+We used the batch sizes of the original deeplabv3plus/segformer implementations. The batch size for the datasets are
+shown in the following table:
+
+| Method        | Dataset    | Batch size |
+| ------------- | ---------- | ---------- |
+| deeplabv3plus | Cityscapes | 16         |
+| deeplabv3plus | KITTI-STEP | 16         |
+| deeplabv3plus | ADE20k     | 32         |
+| deeplabv3plus | COCO-stuff | 32         |
+| segformer     | Cityscapes | 8          |
+| segformer     | KITTI-STEP | 8          |
+| segformer     | ADE20k     | 16         |
+| segformer     | COCO-stuff | 16         |
+
+NOTE: Evaluation, inference, and other "standard" tasks are performed with the original MMSegmentation codebase.
+Please read the MMSegmentation documentation for detailed information. To simply evaluate a model, run
+
+```shell
+python tools/test.py configs/compensation_head/compensation_head_deeplabv3plus_r50-d8_368x368_80k_kittistep.py your_model.pth --eval mIoU
+```
+
+### Biased Inference with compensation
+
+First, you need to train a compensation aware segmentation network. To induce bias into the inference,
+have a look into the config file
+**configs/compensation_head/induction_compensation_head_deeplabv3plus_r50-d8_368x368_80k_kittistep.py**.
+The bias during inference is induced with the field **induction_weights** that is a list of tuples (i, j, value), shown
+as follows:
+
+```python
+model = dict(
+    decode_head=dict(
+        induction_weights=[
+            (11, 11, 30),
+            (12, 12, 30),
+            (11, 1, -8),
+            (11, 2, -8),
+            (12, 1, -8),
+            (12, 2, -8)]))
+```
+
+To visualize the impact of induced bias, modify the compensation values and run
+
+```shell
+python tools/test.py configs/compensation_head/induction_compensation_head_deeplabv3plus_r50-d8_368x368_80k_kittistep.py your_model.pth --eval mIoU
+```
+
+### Plot compensation values
+
+To plot the compensation values, run the following command for a trained model (e.g. on KITTI-STEP):
+
+```shell
+python tools/plot_compensation_matrix.py configs/compensation_head/compensation_head_deeplabv3plus_r50-d8_368x368_80k_kittistep.py your_model.pth
+```
+
+### Plot certainty distribution
+
+To plot the uncompensated certainty distribution, run the following command for a trained model (e.g. on KITTI-STEP):
+
+```shell
+python tools/plot_certainty_distribution.py configs/compensation_head/compensation_head_deeplabv3plus_r50-d8_368x368_80k_kittistep.py your_model.pth
+```
+
+### Uncertainty estimation
+
+To estimate the uncertainty of a trained model for a complete dataset, run the following command for a trained model (e.g. on KITTI-STEP):
+
+```shell
+python tools/predict_uncertainty.py configs/compensation_head/compensation_head_deeplabv3plus_r50-d8_368x368_80k_kittistep.py your_model.pth
+```
+
+You can add the flags
+
+- **--store-raw-uncertainty** to additionally store the raw uncertainty maps (Default is just a
+  visualization stored in a jpg file)
+- **--store-prediction**  to additionally store the network prediction
+- **--store-ground-truth**  to additionally store the ground truth files
+
+### Competitors
+
+This section presents the implementation and usage of some competitors that we used for comparison in our paper.
+
+#### Bayesian Neural Network
+
+We implemented a Bayesian Neural network into MMSegmentation to compare it to our method.
+Configuration files and more details to the model can be found in the folder **configs/bayesian_deeplabv3plus** and in
+the [README.md](configs/bayesian_deeplabv3plus/README.md) file in this folder.
+
+To run the training, run
+
+```shell
+python tools/dist_train.py configs/bayesian_deeplabv3plus/deeplabv3plus_r50-d8_368x368_80k_kittistep.py 8
+```
+
+Inference, evaluation, uncertainty estimation can be performed similar as described above.
+
+#### Noise Adaption Layer: Simple and Complex noise modeling
+
+We implemented the Noise Adatption Layer into MMSegmentation to compare it to our method.
+Configuration files and more details to the model can be found in the folder **configs/nal_head** and in
+the README file in this folder.
+
+To run the training, run
+
+```shell
+python tools/dist_train.py configs/nal_head/nal_head_simple_deeplabv3plus_r50-d8_368x368_80k_kittistep.py 8
+```
+
+Inference, evaluation, uncertainty estimation can be performed similar as described above.
+
+#### LogComp
+
+To employ LogComp, you need to change some parameters in the config files of the above described compensation method.
+The parameters **local_compensation**, **non_diagonal** and **symmetric** need to be deactivated:
+
+```python
+_base_ = '../deeplabv3plus/deeplabv3plus_r50-d8_512x512_80k_ade20k.py'
+
+model = dict(
+    decode_head=dict(
+        type='CompensationHead',
+        local_compensation=False,
+        non_diagonal=False,
+        symmetric=False,
+        decode_head={{_base_.model.decode_head}},
+    ),
+)
+```
+
+### Pretrained models
+
+We provide pretrained models for some above mentioned methods:
+
+| Method                                    | Dataset    | Download                                                                                                                                                                   |
+| ----------------------------------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Baseline DeepLabV3+                       | Cityscapes | [model](https://www.tnt.uni-hannover.de/de/project/MPT/data/CompensationLearningInSemanticSegmentation/deeplabv3plus_r50-d8_512x1024_80k_cityscapes.zip)                   |
+| Baseline DeepLabV3+                       | KITTI-STEP | [model](https://www.tnt.uni-hannover.de/de/project/MPT/data/CompensationLearningInSemanticSegmentation/deeplabv3plus_r50-d8_368x368_80k_kittistep.zip)                     |
+| Baseline DeepLabV3+                       | ADE20k     | [model](https://www.tnt.uni-hannover.de/de/project/MPT/data/CompensationLearningInSemanticSegmentation/deeplabv3plus_r50-d8_512x512_80k_ade20k.zip)                        |
+| Baseline DeepLabV3+                       | COCO-stuff | [model](https://www.tnt.uni-hannover.de/de/project/MPT/data/CompensationLearningInSemanticSegmentation/deeplabv3plus_r50-d8_512x512_80k_coco-stuff10k.zip)                 |
+| Bayesian DeepLabV3+                       | Cityscapes | [model](https://www.tnt.uni-hannover.de/de/project/MPT/data/CompensationLearningInSemanticSegmentation/.zip)                                                               |
+| Bayesian DeepLabV3+                       | KITTI-STEP | [model](https://www.tnt.uni-hannover.de/de/project/MPT/data/CompensationLearningInSemanticSegmentation/.zip)                                                               |
+| Bayesian DeepLabV3+                       | ADE20k     | [model](https://www.tnt.uni-hannover.de/de/project/MPT/data/CompensationLearningInSemanticSegmentation/.zip)                                                               |
+| Bayesian DeepLabV3+                       | COCO-stuff | [model](https://www.tnt.uni-hannover.de/de/project/MPT/data/CompensationLearningInSemanticSegmentation/.zip)                                                               |
+| Compensation DeepLabV3+                   | Cityscapes | [model](https://www.tnt.uni-hannover.de/de/project/MPT/data/CompensationLearningInSemanticSegmentation/compensation_head_deeplabv3plus_r50-d8_512x1024_80k_cityscapes.zip) |
+| Compensation DeepLabV3+                   | KITTI-STEP | [model](https://www.tnt.uni-hannover.de/de/project/MPT/data/CompensationLearningInSemanticSegmentation/.zip)                                                               |
+| Compensation DeepLabV3+                   | ADE20k     | [model](https://www.tnt.uni-hannover.de/de/project/MPT/data/CompensationLearningInSemanticSegmentation/.zip)                                                               |
+| Compensation DeepLabV3+                   | COCO-stuff | [model](https://www.tnt.uni-hannover.de/de/project/MPT/data/CompensationLearningInSemanticSegmentation/.zip)                                                               |
+| Noise Adaption Layer (simple) DeepLabV3+  | Cityscapes | [model](https://www.tnt.uni-hannover.de/de/project/MPT/data/CompensationLearningInSemanticSegmentation/nal_head_simple_deeplabv3plus_r50-d8_512x1024_80k_cityscapes.zip)   |
+| Noise Adaption Layer (simple) DeepLabV3+  | KITTI-STEP | [model](https://www.tnt.uni-hannover.de/de/project/MPT/data/CompensationLearningInSemanticSegmentation/nal_head_simple_deeplabv3plus_r50-d8_368x368_80k_kittistep.zip)     |
+| Noise Adaption Layer (simple) DeepLabV3+  | ADE20k     | [model](https://www.tnt.uni-hannover.de/de/project/MPT/data/CompensationLearningInSemanticSegmentation/nal_head_simple_deeplabv3plus_r50-d8_512x512_80k_ade20k.zip)        |
+| Noise Adaption Layer (simple) DeepLabV3+  | COCO-stuff | [model](https://www.tnt.uni-hannover.de/de/project/MPT/data/CompensationLearningInSemanticSegmentation/nal_head_simple_deeplabv3plus_r50-d8_512x512_80k_coco-stuff10k.zip) |
+| Noise Adaption Layer (complex) DeepLabV3+ | Cityscapes | [model](https://www.tnt.uni-hannover.de/de/project/MPT/data/CompensationLearningInSemanticSegmentation/nal_head_complex_deeplabv3plus_r50-d8_512x1024_80k_cityscapes.zip)  |
+| Noise Adaption Layer (complex) DeepLabV3+ | KITTI-STEP | [model](https://www.tnt.uni-hannover.de/de/project/MPT/data/CompensationLearningInSemanticSegmentation/nal_head_complex_deeplabv3plus_r50-d8_368x368_80k_kittistep.zip)    |
+
+NOTE: The provided models achieve slightly different results than the ones reported in the paper.
+This is due to the fact that we reported mean mIoU over multiple runs, while the provided models are only trained once.
+
 ## License
 
-MMSegmentation is released under the Apache 2.0 license, while some specific features in this library are with other licenses. Please refer to [LICENSES.md](LICENSES.md) for the careful check, if you are using our code for commercial matters.
-
-## Projects in OpenMMLab
-
-- [MMCV](https://github.com/open-mmlab/mmcv): OpenMMLab foundational library for computer vision.
-- [MIM](https://github.com/open-mmlab/mim): MIM installs OpenMMLab packages.
-- [MMClassification](https://github.com/open-mmlab/mmclassification): OpenMMLab image classification toolbox and benchmark.
-- [MMDetection](https://github.com/open-mmlab/mmdetection): OpenMMLab detection toolbox and benchmark.
-- [MMDetection3D](https://github.com/open-mmlab/mmdetection3d): OpenMMLab's next-generation platform for general 3D object detection.
-- [MMYOLO](https://github.com/open-mmlab/mmyolo): OpenMMLab YOLO series toolbox and benchmark.
-- [MMRotate](https://github.com/open-mmlab/mmrotate): OpenMMLab rotated object detection toolbox and benchmark.
-- [MMSegmentation](https://github.com/open-mmlab/mmsegmentation): OpenMMLab semantic segmentation toolbox and benchmark.
-- [MMOCR](https://github.com/open-mmlab/mmocr): OpenMMLab text detection, recognition, and understanding toolbox.
-- [MMPose](https://github.com/open-mmlab/mmpose): OpenMMLab pose estimation toolbox and benchmark.
-- [MMHuman3D](https://github.com/open-mmlab/mmhuman3d): OpenMMLab 3D human parametric model toolbox and benchmark.
-- [MMSelfSup](https://github.com/open-mmlab/mmselfsup): OpenMMLab self-supervised learning toolbox and benchmark.
-- [MMRazor](https://github.com/open-mmlab/mmrazor): OpenMMLab model compression toolbox and benchmark.
-- [MMFewShot](https://github.com/open-mmlab/mmfewshot): OpenMMLab fewshot learning toolbox and benchmark.
-- [MMAction2](https://github.com/open-mmlab/mmaction2): OpenMMLab's next-generation action understanding toolbox and benchmark.
-- [MMTracking](https://github.com/open-mmlab/mmtracking): OpenMMLab video perception toolbox and benchmark.
-- [MMFlow](https://github.com/open-mmlab/mmflow): OpenMMLab optical flow toolbox and benchmark.
-- [MMEditing](https://github.com/open-mmlab/mmediting): OpenMMLab image and video editing toolbox.
-- [MMGeneration](https://github.com/open-mmlab/mmgeneration): OpenMMLab image and video generative models toolbox.
-- [MMDeploy](https://github.com/open-mmlab/mmdeploy): OpenMMLab Model Deployment Framework.
+This repository is developed upon [MMSegmentation](https://github.com/open-mmlab/mmsegmentation). Both codebases are released under Apache 2.0 License themselves. Please check the MMSegmentation repo for details.
