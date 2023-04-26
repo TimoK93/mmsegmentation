@@ -3,6 +3,7 @@ from .ann_head import ANNHead
 from .apc_head import APCHead
 from .aspp_head import ASPPHead
 from .cc_head import CCHead
+from .compensation_head import CompensationHead
 from .da_head import DAHead
 from .dm_head import DMHead
 from .dnl_head import DNLHead
@@ -39,5 +40,5 @@ __all__ = [
     'SETRMLAHead', 'DPTHead', 'SETRMLAHead', 'SegmenterMaskTransformerHead',
     'SegformerHead', 'ISAHead', 'STDCHead', 'IterativeDecodeHead',
     'KernelUpdateHead', 'KernelUpdator', 'LightHamHead',
-    'NoiseAdaptionLayerHead'
+    'NoiseAdaptionLayerHead', 'CompensationHead'
 ]
