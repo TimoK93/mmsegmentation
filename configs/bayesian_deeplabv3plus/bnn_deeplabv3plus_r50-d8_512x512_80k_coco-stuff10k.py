@@ -4,8 +4,9 @@ model = dict(
     iterations=10,
     backbone=dict(dropout_rates=(None, None, 0.25, None)))
 
-evaluation = dict(interval=100)
+evaluation = dict(interval=80000)
+# Setup for 4 GPUs
 data = dict(
-    samples_per_gpu=2,
-    workers_per_gpu=2,
+    samples_per_gpu=8,
+    workers_per_gpu=8,
 )
