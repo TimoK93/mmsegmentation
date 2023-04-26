@@ -35,7 +35,7 @@ Cityscapes, KITTI-STEP, ADE20k, and COCO-stuff10k.
 
 ## Installation
 
-This repository is built on top of MMSegmentation. Please refer to [get_started.md](docs/en/get_started.md) for
+This repository is built as a fork on top of the [MMSegmentation](https://github.com/open-mmlab/mmsegmentation) repository. Please refer to [get_started.md](docs/en/get_started.md) for
 installation instructions.
 After installation, you can use the scripts described below.
 
