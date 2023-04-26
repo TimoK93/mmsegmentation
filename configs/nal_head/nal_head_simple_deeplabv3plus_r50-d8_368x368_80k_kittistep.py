@@ -5,3 +5,8 @@ model = dict(
         type='NoiseAdaptionLayerHead',
         model_type='simple_model',
         decode_head={{_base_.model.decode_head}}), )
+# Setup for 4 GPUs
+data = dict(
+    samples_per_gpu=4,
+    workers_per_gpu=4,
+)
