@@ -4,9 +4,9 @@ Compensation Learning in Semantic Segmentation:
 
 ![](network.png)
 
-> [**Compensation Learning in Semantic Segmentation**](ADD),
+> [**Compensation Learning in Semantic Segmentation**](https://arxiv.org/abs/2304.13428),
 > Timo Kaiser, Christoph Reinders, Bodo Rosenhahn
-> *arXiv report ([arXiv 12345](http://arxiv.org/abs/todo))*
+> *arXiv report ([arXiv 2304.13428](https://arxiv.org/abs/2304.13428))*
 
 ```
 @inproceedings{kaiser_2023_CVPR,
